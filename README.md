@@ -1,5 +1,10 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#React+Redux ToDo List
+This is a simple project uses React+Redux technology simulates daily task list. 
+You can add task to exiting columns or create the new one.
 
+
+---
+---
 ## Available Scripts
 
 In the project directory, you can run:

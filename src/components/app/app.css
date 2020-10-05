@@ -1,0 +1,25 @@
+.main-screen{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    height: 100vh;
+    background-image: url("../../assets/img/100 Best Wallpapers 11 1920x1080 (2).jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.column{
+    padding: 10px;
+    margin-left: 20px;
+    max-width: 250px;
+
+    border-radius: 3px;
+    background-color: #9c9c9c;
+}
+
+.card{
+    border-radius: 3px;
+    margin-bottom: 8px;
+    background-color: white;
+}
