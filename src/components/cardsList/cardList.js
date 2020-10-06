@@ -1,8 +1,12 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {connect} from "react-redux";
 import Card from "../card/card";
 
 const CardList = ({entries, columnId}) => {
+
+    useEffect(() => {
+
+    }, [entries])
 
     const writeMarkup = (items) => {
         return (

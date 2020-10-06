@@ -1,10 +1,11 @@
 import React from "react";
 import {useState, useEffect, useRef} from "react";
 import {connect} from "react-redux";
+import {ADD_CARD} from "../../actions";
 import "./addForm.scss";
 import cancelSvg from "../../assets/img/cancel.svg";
 
-const AddForm = ({purpose, columnId}) => {
+const AddForm = ({newColumn, columnId, ADD_CARD, entries}) => {
     const [openForm, setOpenForm] = useState(false);
     const inputRef = useRef(),
         blockRef = useRef();
@@ -15,6 +16,17 @@ const AddForm = ({purpose, columnId}) => {
             setOpenForm(false);
         }
     };
+
+    const addNewCard = (text, id) => {
+        const card = {
+            body: text,
+            id: entries[id].cards.length + 1
+        };
+        ADD_CARD(card, id);
+        inputRef.current.value = "";
+        setOpenForm(false);
+    };
+
 
     useEffect(() => {
         if(openForm) {
@@ -30,10 +42,15 @@ const AddForm = ({purpose, columnId}) => {
         return (
             <div className="add__form-block">
                 <textarea ref={inputRef}
-                    rows="3"
-                    className="add__input"
+                          placeholder={newColumn ? "Введите название колонки" : "Введите текст карточки"}
+                          rows="3"
+                          className="add__input"
                 ></textarea>
-                <button className="add__new-btn">Добавить</button>
+                <button onClick={() => {
+                    addNewCard(inputRef.current.value, columnId);
+                }}
+                        className="add__new-btn"
+                >{newColumn ? "Добавить колонку" : "Добавить карточку"}</button>
                 <button
                     onClick={() => setOpenForm(false)}
                     className="add__new-close"
@@ -45,16 +62,20 @@ const AddForm = ({purpose, columnId}) => {
     };
 
     return(
-        <div ref={blockRef} className={`${purpose ? "add__column" : "add__block"}${openForm ? " add__opened" : ""}`}>
-            {openForm ? onOpen() : <button onClick={() => setOpenForm(!openForm)} className="add__button">Добавить ещё одну карточку</button>}
+        <div ref={blockRef} className={`${newColumn ? "add__column" : "add__block"}${openForm ? " add__opened" : ""}`}>
+            {openForm ? onOpen() : <button onClick={() => setOpenForm(!openForm)} className="add__button">{newColumn ? "Добавить еще одну колонку" : "Добавить ещё одну карточку"}</button>}
         </div>
     )
 };
 
 const mapStateToProps = (state) => {
     return {
-        formOpened: state.formOpened
+        entries: state.entries
     }
 };
 
-export default connect(mapStateToProps)(AddForm);
+const mapDispatchToProps = {
+    ADD_CARD
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddForm);

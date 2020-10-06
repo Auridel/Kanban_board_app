@@ -14,11 +14,16 @@ const reducer = (state = initialState, action) => {
             }
         }
         case "ADD_CARD": {
-            const newState = state,
-                index = newState.findIndex(item => item.index === action.payload.columnIdx);
-            newState[index].cards = [...state[index].cards, action.payload.card];
+            const {entries} = state;
+            const newEntries = entries,
+                {columnIdx} = action.payload,
+                {card} = action.payload;
+            
+
+            newEntries[columnIdx].cards = [...entries[columnIdx].cards, card];
             return {
-                state: newState
+                ...state,
+                entries: [...newEntries]
             }
         }
         default: return state;

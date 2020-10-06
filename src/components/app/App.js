@@ -34,7 +34,7 @@ const App = ({service, loaded, entries, GET_ENTRIES}) => {
                   )
               }) : ""
           }
-          <AddForm columnId={entries.length} purpose="add__column"/>
+          <AddForm columnId={entries.length + 1} newColumn={true}/>
       </div>
     )
 };

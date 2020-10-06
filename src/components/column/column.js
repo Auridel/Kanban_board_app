@@ -8,7 +8,7 @@ const Column = ({id, title}) => {
         <div className="column">
             <h2 className="column__header">{title}</h2>
             <CardList columnId={id}/>
-            <AddForm columnId={id}/>
+            <AddForm columnId={id} newColumn={false}/>
         </div>
     )
 };
