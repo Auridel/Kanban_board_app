@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 import {Provider} from "react-redux";
 import store from "./store";
 import App from "./components/app/App";
-import service from "./service/service";
+import Service from "./service/service";
 import ServiceContext from "./components/serviceContext/serviceContext";
 
-
+const service = new Service();
 
 ReactDOM.render(
   <React.StrictMode>

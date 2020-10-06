@@ -1,55 +1,51 @@
 import React from "react";
-import "./app.css";
+import {useEffect} from "react";
+import {connect} from "react-redux";
+import "./app.scss";
+import {GET_ENTRIES} from "../../actions";
+import Column from "../column/column";
+import WithService from "../withService/withService";
 
-const App = () => {
-  return(
+const App = ({service, loaded, entries, GET_ENTRIES}) => {
+
+
+    useEffect(() => {
+        console.log("render");
+        if(!loaded) {
+            service.getColumns()
+                .then((res) => {
+                    GET_ENTRIES(res);
+                })
+                .catch((err) => {
+                    console.log("error " + err);
+                });
+        }
+    }, [loaded]);
+
+    console.log(entries)
+
+    return(
       <div className="main-screen">
-          <div className="column">
-              <div className="cards-list">
-                  <div className="card">
-                      Когда вы устанавливаете приложение и запускаете "npm install", он снимает как зависимости
-                  </div><div className="card">
-                      Когда вы устанавливаете приложение и запускаете "npm install", он снимает как зависимости
-                  </div><div className="card">
-                      Когда вы устанавливаете приложение и запускаете "npm install", он снимает как зависимости
-                  </div><div className="card">
-                      Когда вы устанавливаете приложение и запускаете "npm install", он снимает как зависимости
-                  </div><div className="card">
-                      Когда вы устанавливаете приложение и запускаете "npm install", он снимает как зависимости
-                  </div><div className="card">
-                      Когда вы устанавливаете приложение и запускаете "npm install", он снимает как зависимости
-                  </div><div className="card">
-                      Когда вы устанавливаете приложение и запускаете "npm install", он снимает как зависимости
-                  </div><div className="card">
-                      Когда вы устанавливаете приложение и запускаете "npm install", он снимает как зависимости
-                  </div>
-              </div>
-              <button className="add-btn">добавить еще одну карточку</button>
-          </div>
-          <div className="column">
-              <div className="cards-list">
-                  <div className="card">
-                      Когда вы устанавливаете приложение и запускаете "npm install", он снимает как зависимости
-                  </div><div className="card">
-                  Когда вы устанавливаете приложение и запускаете "npm install", он снимает как зависимости
-              </div><div className="card">
-                  Когда вы устанавливаете приложение и запускаете "npm install", он снимает как зависимости
-              </div><div className="card">
-                  Когда вы устанавливаете приложение и запускаете "npm install", он снимает как зависимости
-              </div><div className="card">
-                  Когда вы устанавливаете приложение и запускаете "npm install", он снимает как зависимости
-              </div><div className="card">
-                  Когда вы устанавливаете приложение и запускаете "npm install", он снимает как зависимости
-              </div><div className="card">
-                  Когда вы устанавливаете приложение и запускаете "npm install", он снимает как зависимости
-              </div><div className="card">
-                  Когда вы устанавливаете приложение и запускаете "npm install", он снимает как зависимости
-              </div>
-              </div>
-              <button className="add-btn">добавить еще одну карточку</button>
-          </div>
+          {
+              loaded ? entries.map(item => {
+                  const {title, index}=item;
+                  return (
+                      <Column key={index} title={title} id={index}/>
+                  )
+              }) : ""
+          }
       </div>
-  )
+    )
 };
 
-export default App;
+const mapStateToProps = (state) => {
+    return{
+        loaded: state.loaded,
+        entries: state.entries
+    }
+};
+const mapDispatchToProps = {
+    GET_ENTRIES
+};
+
+export default WithService()(connect(mapStateToProps, mapDispatchToProps)(App));
