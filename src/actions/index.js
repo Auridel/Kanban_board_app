@@ -22,6 +22,7 @@ const ADD_COLUMN = (title) => {
     }
 };
 
+
 export {
     GET_ENTRIES,
     ADD_CARD,

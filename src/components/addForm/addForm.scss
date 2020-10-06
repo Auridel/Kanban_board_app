@@ -1,0 +1,104 @@
+$bgColor: #c1c1c1;
+$textColor: #000;
+.add__block{
+  position: sticky;
+  bottom: 0;
+  border-radius: 3px;
+
+  background-color: #c1c1c1;
+
+  &:hover{
+    background-color: lighten($bgColor, 10%);
+  }
+}
+.add__button{
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 10px;
+
+  color: $textColor;
+  outline: none;
+  border: 0;
+  border-radius: 3px;
+  background-color: #c1c1c1;
+
+  &:before{
+    content: "";
+    position: absolute;
+    left: 15px;
+    top: 10px;
+    width: 15px;
+    height: 15px;
+    background-image: url("../../assets/img/plus.svg");
+  }
+
+  &:hover{
+    background-color: lighten($bgColor, 10%);
+    color: lighten($textColor, 15%);
+
+    &:before{
+      filter: opacity(0.8);
+    }
+  }
+}
+
+.add__form-block{
+  position: relative;
+  width: 100%;
+  height: auto;
+  padding: 10px;
+}
+.add__column{
+  margin-left: 20px;
+  width: 250px;
+
+  border-radius: 3px;
+  background-color: #c1c1c1;
+  box-shadow: 2px 4px 6px 0px;
+}
+.add__input{
+  width: 100%;
+  padding: 8px 10px;
+  margin-bottom: 15px;
+
+  border-radius: 3px;
+  outline: none;
+  resize: none;
+}
+.add__new-btn{
+  border-color: #6fb17d;
+  background-color: #5ad285;
+  color: #fff;
+  box-shadow: none;
+  outline: none;
+  width: 110px;
+  height: 40px;
+  border-radius: 3px;
+}
+.add__new-close{
+  position: absolute;
+  right: 12px;
+  bottom: 35px;
+
+  border: none;
+  background: none;
+  outline: none;
+}
+.add__new-cancel-icon{
+  width: 15px;
+  filter: opacity(0.6);
+  &:hover{
+    filter: opacity(1);
+  }
+}
+.add__opened {
+  &:hover {
+    background-color: $bgColor;
+    color: $textColor;
+
+    &:before {
+      filter: opacity(1);
+    }
+  }
+}

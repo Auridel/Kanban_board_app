@@ -4,10 +4,10 @@ import {connect} from "react-redux";
 import "./app.scss";
 import {GET_ENTRIES} from "../../actions";
 import Column from "../column/column";
+import AddForm from "../addForm/addForm";
 import WithService from "../withService/withService";
 
 const App = ({service, loaded, entries, GET_ENTRIES}) => {
-
 
     useEffect(() => {
         console.log("render");
@@ -20,20 +20,21 @@ const App = ({service, loaded, entries, GET_ENTRIES}) => {
                     console.log("error " + err);
                 });
         }
-    }, [loaded]);
+    });
 
-    console.log(entries)
+    console.log(entries);
 
     return(
       <div className="main-screen">
           {
-              loaded ? entries.map(item => {
-                  const {title, index}=item;
+              loaded ? entries.map((item, idx) => {
+                  const {title}=item;
                   return (
-                      <Column key={index} title={title} id={index}/>
+                      <Column key={idx} title={title} id={idx}/>
                   )
               }) : ""
           }
+          <AddForm columnId={entries.length} purpose="add__column"/>
       </div>
     )
 };

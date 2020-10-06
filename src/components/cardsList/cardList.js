@@ -5,9 +5,8 @@ import Card from "../card/card";
 const CardList = ({entries, columnId}) => {
 
     const writeMarkup = (items) => {
-        const listItems = items.filter(item => +item.index === +columnId);
         return (
-            listItems[0].cards.map(elem => {
+            items[columnId].cards.map(elem => {
                 return <Card key={elem.id} text={elem.body} cardId={elem.id}/>
             })
         )
