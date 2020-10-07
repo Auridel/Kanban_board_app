@@ -1,7 +1,7 @@
-#React+Redux ToDo List
+<h1>React+Redux ToDo List</h1>
 
-This is a simple project uses React+Redux technology simulates daily task list. 
-You can add task to exiting columns or create the new one. 
+<p>This is a simple project uses React+Redux technology simulates daily task list. 
+You can add task to exiting columns or create the new one. </p>
 
 
 ---
