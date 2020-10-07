@@ -1,5 +1,5 @@
-$bgColor: #ebecf0;;
-$textColor: #000;
+$bgColor: #ebecf0;
+$textColor: #232323;
 .add__block{
   position: sticky;
   bottom: 0;
@@ -8,7 +8,7 @@ $textColor: #000;
   background-color: $bgColor;
 
   &:hover{
-    background-color: lighten($bgColor, 10%);
+    background-color: darken($bgColor, 10%);
   }
 }
 .add__button{
@@ -16,6 +16,8 @@ $textColor: #000;
   display: block;
   width: 100%;
   padding: 10px;
+  padding-left: 30px;
+  text-align: left;
 
   font-family: 'Roboto', sans-serif;
   color: $textColor;
@@ -23,23 +25,27 @@ $textColor: #000;
   border: 0;
   border-radius: 3px;
   background-color: $bgColor;
+  transition: all 0.3s;
 
   &:before{
     content: "";
     position: absolute;
-    left: 15px;
+    left: 10px;
     top: 10px;
     width: 15px;
     height: 15px;
+
+    opacity: 0.7;
     background-image: url("../../assets/img/plus.svg");
+    transition: all 0.3s;
   }
 
   &:hover{
-    background-color: lighten($bgColor, 10%);
-    color: lighten($textColor, 15%);
+    background-color: darken($bgColor, 10%);
+    color: darken($textColor, 15%);
 
     &:before{
-      filter: opacity(0.8);
+      opacity: 1;
     }
   }
 }
@@ -83,6 +89,7 @@ $textColor: #000;
   border-color: #6fb17d;
   outline: none;
   border-radius: 3px;
+  transition: all 0.3s;
 
   &:hover{
     background-color: rgb(97, 189, 79);
@@ -97,11 +104,12 @@ $textColor: #000;
   background: none;
   outline: none;
 }
-.add__new-cancel-icon{
+.cancel-icon{
   width: 15px;
-  filter: opacity(0.3);
+  opacity: 0.3;
+  transition: all 0.3s;
   &:hover{
-    filter: opacity(1);
+    opacity: 1;
   }
 }
 .add__opened {
@@ -110,7 +118,7 @@ $textColor: #000;
     color: $textColor;
 
     &:before {
-      filter: opacity(1);
+      opacity: 1;
     }
   }
 }

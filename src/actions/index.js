@@ -22,9 +22,17 @@ const ADD_COLUMN = (title) => {
     }
 };
 
+const DELETE_COLUMN = (id) => {
+    return{
+        type: "DELETE_COLUMN",
+        payload: id
+    }
+};
+
 
 export {
     GET_ENTRIES,
     ADD_CARD,
-    ADD_COLUMN
+    ADD_COLUMN,
+    DELETE_COLUMN
 }

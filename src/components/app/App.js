@@ -5,24 +5,31 @@ import "./app.scss";
 import {GET_ENTRIES} from "../../actions";
 import Column from "../column/column";
 import AddForm from "../addForm/addForm";
-import WithService from "../withService/withService";
+import WithService from "../hoc_withService/withService";
+
+import data from "../../db"
 
 const App = ({service, loaded, entries, GET_ENTRIES}) => {
 
     useEffect(() => {
-        console.log("render");
         if(!loaded) {
-            service.getColumns()
-                .then((res) => {
-                    GET_ENTRIES(res);
-                })
-                .catch((err) => {
-                    console.log("error " + err);
-                });
+            if(!window.localStorage.getItem("data")){
+                window.localStorage.setItem("data", JSON.stringify(data.entries));
+                GET_ENTRIES(data.entries);
+            }
+            else {
+                GET_ENTRIES(JSON.parse(window.localStorage.getItem("data")));
+            }
+            // service.getColumns()
+            //     .then((res) => {
+            //         GET_ENTRIES(res);
+            //     })
+            //     .catch((err) => {
+            //         console.log("error " + err);
+            //     });
         }
+        window.localStorage.setItem("data", JSON.stringify(entries));
     });
-
-    console.log(entries);
 
     return(
       <div className="main-screen">
