@@ -4,7 +4,8 @@
     <list default="true" id="4f0ba614-63dd-4024-8148-607aa84c9349" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/db.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/service.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/service.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -104,7 +105,7 @@
       <workItem from="1602081980683" duration="127000" />
       <workItem from="1602146681479" duration="10738000" />
       <workItem from="1602172456269" duration="15822000" />
-      <workItem from="1602196042380" duration="2926000" />
+      <workItem from="1602196042380" duration="3332000" />
     </task>
     <task id="LOCAL-00001" summary="starting project">
       <created>1601926005087</created>
@@ -183,7 +184,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602197666528</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="network settings">
+      <created>1602199491014</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1602199491014</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
