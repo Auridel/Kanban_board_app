@@ -1,6 +1,6 @@
 export default class Service {
     constructor(){
-        this._server = "http://localhost:3000"
+        this._server = "http://localhost:3005"
     }
 
     async getResource (url){
@@ -24,7 +24,7 @@ export default class Service {
             body: message
         });
         if(!res.ok) throw new Error();
-        return res;
+        return await res.json();
     }
 
     async deleteColumn(id){
@@ -35,15 +35,14 @@ export default class Service {
 
     async addCard(colId, body){
         const message = JSON.stringify(body);
-        const res = await fetch(`${this._server}/entries/${colId}/cards/`,{
-            method: "POST",
+        const res = await fetch(`${this._server}/entries/${colId}`,{
+            method: "PATCH",
             headers: {
                 "Content-Type": "application/json;charset=utf-8"
             },
             body: message
         });
         if(!res.ok) throw new Error();
-
-        return res;
+        return await res.json();
     }
 }

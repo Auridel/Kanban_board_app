@@ -12,13 +12,13 @@ const Column = ({id, title, DELETE_COLUMN, service}) => {
     const deleteColumn = (id, title) => {
         if(window.confirm(`Вы действительно хотите удалить колонку ${title}?`)){
             DELETE_COLUMN(id);
-            // service.deleteColumn(id + 1)
-            //     .then(() => {
-            //         console.log("column deleted")
-            //     })
-            //     .catch(() => {
-            //         console.log("delete err")
-            //     })
+            service.deleteColumn(id + 1)
+                .then(() => {
+                    console.log("column deleted")
+                })
+                .catch(() => {
+                    console.log("delete err")
+                })
         }
     };
 

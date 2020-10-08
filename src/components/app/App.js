@@ -7,28 +7,20 @@ import Column from "../column/column";
 import AddForm from "../addForm/addForm";
 import WithService from "../hoc_withService/withService";
 
-import data from "../../db"
+
 
 const App = ({service, loaded, entries, GET_ENTRIES}) => {
 
     useEffect(() => {
         if(!loaded) {
-            if(!window.localStorage.getItem("data")){
-                window.localStorage.setItem("data", JSON.stringify(data.entries));
-                GET_ENTRIES(data.entries);
-            }
-            else {
-                GET_ENTRIES(JSON.parse(window.localStorage.getItem("data")));
-            }
-            // service.getColumns()
-            //     .then((res) => {
-            //         GET_ENTRIES(res);
-            //     })
-            //     .catch((err) => {
-            //         console.log("error " + err);
-            //     });
+            service.getColumns()
+                .then((res) => {
+                    GET_ENTRIES(res);
+                })
+                .catch((err) => {
+                    console.log("error " + err);
+                });
         }
-        window.localStorage.setItem("data", JSON.stringify(entries));
     });
 
     return(

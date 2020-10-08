@@ -1,24 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4f0ba614-63dd-4024-8148-607aa84c9349" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/assets/db.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/card/card.scss" afterDir="false" />
+    <list default="true" id="4f0ba614-63dd-4024-8148-607aa84c9349" name="Default Changelist" comment="Basic functionality, db update disabled for now">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/addForm/addForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/addForm/addForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/addForm/addForm.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/addForm/addForm.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/app/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/app/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app/app.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/card/card.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/card/card.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/cardsList/cardList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cardsList/cardList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/column/column.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/column/column.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/column/column.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/column/column.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/withService/withService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/hoc_withService/withService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/db.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducer/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducer/reducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/service/service.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/service.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -46,7 +36,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/assets" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -104,7 +94,10 @@
       <workItem from="1601971377833" duration="31827000" />
       <workItem from="1602019284768" duration="2004000" />
       <workItem from="1602024320356" duration="1085000" />
-      <workItem from="1602054155963" duration="20996000" />
+      <workItem from="1602054155963" duration="22231000" />
+      <workItem from="1602081819233" duration="38000" />
+      <workItem from="1602081980683" duration="127000" />
+      <workItem from="1602146681479" duration="1637000" />
     </task>
     <task id="LOCAL-00001" summary="starting project">
       <created>1601926005087</created>
@@ -134,7 +127,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602017129875</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Basic functionality, db update disabled for now">
+      <created>1602076068592</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1602076068592</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -158,6 +158,7 @@
     <MESSAGE value="using redux and json-server to get actual entries" />
     <MESSAGE value="add form, basic styling" />
     <MESSAGE value="add form, add card func, basic styling" />
-    <option name="LAST_COMMIT_MESSAGE" value="add form, add card func, basic styling" />
+    <MESSAGE value="Basic functionality, db update disabled for now" />
+    <option name="LAST_COMMIT_MESSAGE" value="Basic functionality, db update disabled for now" />
   </component>
 </project>

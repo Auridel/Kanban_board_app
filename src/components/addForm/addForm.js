@@ -28,31 +28,35 @@ const AddForm = ({newColumn, columnId, entries, ADD_CARD, ADD_COLUMN, service}) 
                 body: text,
                 id: entries[id].cards.length + 1
             };
+            const updatedColumn = {
+                title: entries[columnId].title,
+                cards: [ card]
+        };
             ADD_CARD(card, id);
             closeForm();
-            // service.addCard(id + 1, text)
-            //     .then(() => {
-            //         console.log("card added")
-            //     })
-            //     .catch(() => {
-            //         console.log("card add err")
-            //     })
+            service.addCard(id + 1, updatedColumn)
+                .then(() => {
+                    console.log("card added")
+                })
+                .catch(() => {
+                    console.log("card add err")
+                })
         }
     };
     const addNewColumn = (title) => {
         if(title) {
             ADD_COLUMN(title, columnId + 1);
             closeForm();
-            // service.addColumn({
-            //     title: title,
-            //     cards : []
-            // })
-            //     .then((res) => {
-            //         console.log(res)
-            //     })
-            //     .catch(() => {
-            //         console.log("error");
-            //     })
+            service.addColumn({
+                title: title,
+                cards : []
+            })
+                .then((res) => {
+                    console.log("col added")
+                })
+                .catch(() => {
+                    console.log("col add error");
+                })
         }
     };
 
