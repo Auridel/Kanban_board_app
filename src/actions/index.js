@@ -42,11 +42,21 @@ const DELETE_CARD = (columnId, cardId) => {
     }
 };
 
+const DRAG_CARDS = (newEntries) => {
+    return {
+        type: "DRAG_CARDS",
+        payload: {
+            newEntries
+        }
+    }
+};
+
 
 export {
     GET_ENTRIES,
     ADD_CARD,
     ADD_COLUMN,
     DELETE_COLUMN,
-    DELETE_CARD
+    DELETE_CARD,
+    DRAG_CARDS
 }

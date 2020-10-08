@@ -1,7 +1,9 @@
 import React from "react";
 import {connect} from "react-redux";
-import Card from "../card/card";
 import {DELETE_CARD} from "../../actions";
+import Card from "../card/card";
+import "./cardList.scss";
+import {Droppable} from "react-beautiful-dnd";
 
 const CardList = ({entries, columnId, DELETE_CARD, service}) => {
 
@@ -26,24 +28,35 @@ const CardList = ({entries, columnId, DELETE_CARD, service}) => {
     const writeMarkup = (items, colId) => {
         const idx = entries.findIndex(item => +item.id === +colId);
         return (
-            items[idx].cards.map(elem => {
-                return <Card
-                    onDelete={deleteCard}
-                    key={elem.id}
-                    text={elem.body}
-                    cardId={elem.id}
-                    columnId={colId}
-                />
-            })
+            items[idx].cards.map((elem, index) => {
+                return (
+                    <Card
+                        onDelete={deleteCard}
+                        key={elem.id}
+                        index={index}
+                        text={elem.body}
+                        cardId={elem.id}
+                        columnId={colId}
+                    />
+                )})
         )
     };
 
     return(
-        <div className="card-list">
-            {
-                writeMarkup(entries, columnId)
+        <Droppable droppableId={`${columnId}`}>
+            {(provided) =>
+                <ul
+                    ref={provided.innerRef}
+                    {...provided.droppableProps}
+
+                    className="card-list">
+                    {
+                        writeMarkup(entries, columnId)
+                    }
+                    {provided.placeholder}
+                </ul>
             }
-        </div>
+        </Droppable>
         )
 };
 

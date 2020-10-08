@@ -32,9 +32,9 @@ const Column = ({id, title, DELETE_COLUMN, service}) => {
                 className="column__delete">
                 <img className="cancel-icon" src={cancelSvg} alt="cancel-icon"/>
             </button>
-            <CardList
-                service={service}
-                columnId={id}/>
+                <CardList
+                    service={service}
+                    columnId={id}/>
             <AddForm columnId={id} newColumn={false}/>
         </div>
     )

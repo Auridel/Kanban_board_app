@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^7.2.1",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
+    "react-beautiful-dnd": "^13.0.0",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.1",
     "react-scripts": "3.4.3",
@@ -19,7 +20,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "serve": "concurrently \"npm run server\" \"npm start\"",
-    "server": "json-server ./src/db.json -w --port 3005"
+    "server": "json-server ./src/db.json -w --port 3005",
+    "static-build": "serve -s build -l 4000"
   },
   "eslintConfig": {
     "extends": "react-app"

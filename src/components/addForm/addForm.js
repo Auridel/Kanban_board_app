@@ -5,6 +5,7 @@ import {ADD_CARD, ADD_COLUMN} from "../../actions";
 import "./addForm.scss";
 import cancelSvg from "../../assets/img/cancel.svg";
 import WithService from "../hoc_withService/withService";
+import randomIdGenerator from "../../common/randomIdGenerator";
 
 const AddForm = ({newColumn, columnId, entries, ADD_CARD, ADD_COLUMN, service}) => {
     const [openForm, setOpenForm] = useState(false);
@@ -37,7 +38,7 @@ const AddForm = ({newColumn, columnId, entries, ADD_CARD, ADD_COLUMN, service}) 
             const idx = entries.findIndex(item => +item.id === +id);
             const card = {
                 body: text,
-                id: entries[idx].cards.length + 1
+                id: randomIdGenerator(`${text}`)
             };
             const updatedColumn = {
                 title: entries[idx].title,

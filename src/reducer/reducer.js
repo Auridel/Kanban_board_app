@@ -50,7 +50,13 @@ const reducer = (state = initialState, action) => {
                 idx = newEntries.findIndex(item => +item.id === +columnId),
                 newCards = [...state.entries[idx].cards.filter(elem => +elem.id !== +cardId)];
             newEntries[idx].cards = [...newCards];
-
+            return {
+                ...state,
+                entries: [...newEntries]
+            }
+        }
+        case "DRAG_CARDS":{
+            const {newEntries} = action.payload;
             return {
                 ...state,
                 entries: [...newEntries]
