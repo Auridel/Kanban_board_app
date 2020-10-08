@@ -1,6 +1,6 @@
 export default class Service {
     constructor(){
-        this._server = "http://localhost:3005"
+        this._server = `http://${window.location.hostname}:3005`
     }
 
     async getResource (url){
