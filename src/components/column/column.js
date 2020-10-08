@@ -12,7 +12,7 @@ const Column = ({id, title, DELETE_COLUMN, service}) => {
     const deleteColumn = (id, title) => {
         if(window.confirm(`Вы действительно хотите удалить колонку ${title}?`)){
             DELETE_COLUMN(id);
-            service.deleteColumn(id + 1)
+            service.deleteColumn(id)
                 .then(() => {
                     console.log("column deleted")
                 })

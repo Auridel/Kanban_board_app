@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4f0ba614-63dd-4024-8148-607aa84c9349" name="Default Changelist" comment="Basic functionality, db update disabled for now">
+    <list default="true" id="4f0ba614-63dd-4024-8148-607aa84c9349" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/addForm/addForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/addForm/addForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/app/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/cardsList/cardList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cardsList/cardList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/column/column.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/column/column.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/service.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/db.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reducer/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducer/reducer.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -97,7 +97,7 @@
       <workItem from="1602054155963" duration="22231000" />
       <workItem from="1602081819233" duration="38000" />
       <workItem from="1602081980683" duration="127000" />
-      <workItem from="1602146681479" duration="1637000" />
+      <workItem from="1602146681479" duration="4092000" />
     </task>
     <task id="LOCAL-00001" summary="starting project">
       <created>1601926005087</created>
@@ -134,7 +134,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602076068592</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="network fixed">
+      <created>1602148364565</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1602148364565</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -159,6 +166,7 @@
     <MESSAGE value="add form, basic styling" />
     <MESSAGE value="add form, add card func, basic styling" />
     <MESSAGE value="Basic functionality, db update disabled for now" />
-    <option name="LAST_COMMIT_MESSAGE" value="Basic functionality, db update disabled for now" />
+    <MESSAGE value="network fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="network fixed" />
   </component>
 </project>

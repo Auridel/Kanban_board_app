@@ -25,12 +25,12 @@ const reducer = (state = initialState, action) => {
             }
         }
         case "ADD_COLUMN":{
-            const title = action.payload;
+            const {title, id} = action.payload;
             return {
                 ...state,
                 entries: [...state.entries, {
                     title,
-                    id: state.entries.length +1,
+                    id: id,
                     cards: []
                 }]
             }
@@ -38,9 +38,10 @@ const reducer = (state = initialState, action) => {
         case "DELETE_COLUMN": {
             const id = action.payload,
                 newEntries = [...state.entries];
+            const idx = newEntries.findIndex(item => +item.id === +id);
             return {
                 ...state,
-                entries: [...newEntries.slice(0,id),...newEntries.slice(id + 1, newEntries.length)]
+                entries: [...newEntries.slice(0,idx),...newEntries.slice(idx + 1, newEntries.length)]
             }
         }
         default: return state;

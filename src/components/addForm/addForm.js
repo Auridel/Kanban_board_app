@@ -24,17 +24,18 @@ const AddForm = ({newColumn, columnId, entries, ADD_CARD, ADD_COLUMN, service}) 
     };
     const addNewCard = (text, id) => {
         if(text) {
+            const idx = entries.findIndex(item => +item.id === +id);
             const card = {
                 body: text,
-                id: entries[id].cards.length + 1
+                id: entries[idx].cards.length + 1
             };
             const updatedColumn = {
-                title: entries[columnId].title,
-                cards: [ card]
+                title: entries[idx].title,
+                cards: [...entries[idx].cards, card]
         };
-            ADD_CARD(card, id);
+            ADD_CARD(card, idx);
             closeForm();
-            service.addCard(id + 1, updatedColumn)
+            service.addCard(id, updatedColumn)
                 .then(() => {
                     console.log("card added")
                 })
@@ -45,18 +46,19 @@ const AddForm = ({newColumn, columnId, entries, ADD_CARD, ADD_COLUMN, service}) 
     };
     const addNewColumn = (title) => {
         if(title) {
-            ADD_COLUMN(title, columnId + 1);
-            closeForm();
             service.addColumn({
                 title: title,
                 cards : []
             })
                 .then((res) => {
+                    console.log(res.id);
+                    ADD_COLUMN(title, res.id);
                     console.log("col added")
                 })
                 .catch(() => {
                     console.log("col add error");
-                })
+                });
+            closeForm();
         }
     };
 

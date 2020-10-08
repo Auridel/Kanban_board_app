@@ -26,14 +26,14 @@ const App = ({service, loaded, entries, GET_ENTRIES}) => {
     return(
       <div className="main-screen">
           {
-              loaded ? entries.map((item, idx) => {
+              loaded ? entries.map((item) => {
                   const {title}=item;
                   return (
-                      <Column key={idx} title={title} id={idx}/>
+                      <Column key={item.id} title={title} id={item.id}/>
                   )
               }) : ""
           }
-          <AddForm columnId={entries.length + 1} newColumn={true}/>
+          <AddForm columnId={null} newColumn={true}/>
       </div>
     )
 };

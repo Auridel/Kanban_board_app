@@ -15,10 +15,10 @@ const ADD_CARD = (card, columnIdx) => {
     }
 };
 
-const ADD_COLUMN = (title) => {
+const ADD_COLUMN = (title, id) => {
     return {
         type: "ADD_COLUMN",
-        payload: title
+        payload: {title, id}
     }
 };
 
