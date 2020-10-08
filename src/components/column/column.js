@@ -17,7 +17,7 @@ const Column = ({id, title, DELETE_COLUMN, service}) => {
                     console.log("column deleted")
                 })
                 .catch(() => {
-                    console.log("delete err")
+                    console.log("col delete err")
                 })
         }
     };
@@ -32,19 +32,17 @@ const Column = ({id, title, DELETE_COLUMN, service}) => {
                 className="column__delete">
                 <img className="cancel-icon" src={cancelSvg} alt="cancel-icon"/>
             </button>
-            <CardList columnId={id}/>
+            <CardList
+                service={service}
+                columnId={id}/>
             <AddForm columnId={id} newColumn={false}/>
         </div>
     )
 };
 
-const mapStateToProps = (state) => {
-    return {
-        entries: state.entries
-    }
-};
+
 const mapDispatchToProps = {
     DELETE_COLUMN
 };
 
-export default WithService()(connect(mapStateToProps, mapDispatchToProps)(Column));
+export default WithService()(connect(null, mapDispatchToProps)(Column));

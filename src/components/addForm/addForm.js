@@ -12,6 +12,16 @@ const AddForm = ({newColumn, columnId, entries, ADD_CARD, ADD_COLUMN, service}) 
     const inputRef = useRef(),
         blockRef = useRef();
 
+    useEffect(() => {
+        if(openForm) {
+            inputRef.current.focus();
+            document.addEventListener("click", handleClick);
+        }
+        return () => {
+            document.removeEventListener("click", handleClick);
+        }
+    },[openForm]);
+
     const closeForm = () => {
         setInputText("");
         setOpenForm(false);
@@ -35,7 +45,7 @@ const AddForm = ({newColumn, columnId, entries, ADD_CARD, ADD_COLUMN, service}) 
         };
             ADD_CARD(card, idx);
             closeForm();
-            service.addCard(id, updatedColumn)
+            service.updateColumn(id, updatedColumn)
                 .then(() => {
                     console.log("card added")
                 })
@@ -51,7 +61,6 @@ const AddForm = ({newColumn, columnId, entries, ADD_CARD, ADD_COLUMN, service}) 
                 cards : []
             })
                 .then((res) => {
-                    console.log(res.id);
                     ADD_COLUMN(title, res.id);
                     console.log("col added")
                 })
@@ -62,16 +71,6 @@ const AddForm = ({newColumn, columnId, entries, ADD_CARD, ADD_COLUMN, service}) 
         }
     };
 
-
-    useEffect(() => {
-        if(openForm) {
-            inputRef.current.focus();
-            document.addEventListener("click", handleClick);
-        }
-        return () => {
-            document.removeEventListener("click", handleClick);
-        }
-    });
 
     const onOpen = () => {
         return (

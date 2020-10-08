@@ -33,7 +33,7 @@ export default class Service {
         });
     }
 
-    async addCard(colId, body){
+    async updateColumn(colId, body){
         const message = JSON.stringify(body);
         const res = await fetch(`${this._server}/entries/${colId}`,{
             method: "PATCH",

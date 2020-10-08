@@ -44,6 +44,18 @@ const reducer = (state = initialState, action) => {
                 entries: [...newEntries.slice(0,idx),...newEntries.slice(idx + 1, newEntries.length)]
             }
         }
+        case "DELETE_CARD": {
+            const {columnId, cardId} = action.payload,
+                newEntries = [...state.entries],
+                idx = newEntries.findIndex(item => +item.id === +columnId),
+                newCards = [...state.entries[idx].cards.filter(elem => +elem.id !== +cardId)];
+            newEntries[idx].cards = [...newCards];
+
+            return {
+                ...state,
+                entries: [...newEntries]
+            }
+        }
         default: return state;
     }
 };

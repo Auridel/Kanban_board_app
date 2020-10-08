@@ -18,14 +18,27 @@ const ADD_CARD = (card, columnIdx) => {
 const ADD_COLUMN = (title, id) => {
     return {
         type: "ADD_COLUMN",
-        payload: {title, id}
+        payload: {
+            title,
+            id
+        }
     }
 };
 
 const DELETE_COLUMN = (id) => {
-    return{
+    return {
         type: "DELETE_COLUMN",
         payload: id
+    }
+};
+
+const DELETE_CARD = (columnId, cardId) => {
+    return {
+        type: "DELETE_CARD",
+        payload: {
+            columnId,
+            cardId
+        }
     }
 };
 
@@ -34,5 +47,6 @@ export {
     GET_ENTRIES,
     ADD_CARD,
     ADD_COLUMN,
-    DELETE_COLUMN
+    DELETE_COLUMN,
+    DELETE_CARD
 }

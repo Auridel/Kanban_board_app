@@ -21,7 +21,7 @@ const App = ({service, loaded, entries, GET_ENTRIES}) => {
                     console.log("error " + err);
                 });
         }
-    });
+    }, [loaded]);
 
     return(
       <div className="main-screen">
