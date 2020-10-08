@@ -1,26 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4f0ba614-63dd-4024-8148-607aa84c9349" name="Default Changelist" comment="drag and drop added">
-      <change afterPath="$PROJECT_DIR$/src/common/randomIdGenerator.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/cardsList/cardList.scss" afterDir="false" />
+    <list default="true" id="4f0ba614-63dd-4024-8148-607aa84c9349" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/db.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/addForm/addForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/addForm/addForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/addForm/addForm.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/addForm/addForm.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/app/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/card/card.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/card/card.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/cardsList/cardList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cardsList/cardList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/column/column.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/column/column.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/column/column.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/column/column.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/db.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducer/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducer/reducer.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -118,7 +103,7 @@
       <workItem from="1602081819233" duration="38000" />
       <workItem from="1602081980683" duration="127000" />
       <workItem from="1602146681479" duration="10738000" />
-      <workItem from="1602172456269" duration="14712000" />
+      <workItem from="1602172456269" duration="15763000" />
     </task>
     <task id="LOCAL-00001" summary="starting project">
       <created>1601926005087</created>
@@ -176,7 +161,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602155749053</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="drag and drop added">
+      <created>1602191225821</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1602191225821</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
