@@ -5,6 +5,7 @@ import store from "./store";
 import App from "./components/app/App";
 import Service from "./service/service";
 import ServiceContext from "./components/serviceContext/serviceContext";
+import ErrorCatcher from "./components/errorCatcher/errorCatcher";
 
 
 const service = new Service();
@@ -12,9 +13,11 @@ const service = new Service();
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-        <ServiceContext.Provider value={service}>
-                <App />
-        </ServiceContext.Provider>
+        <ErrorCatcher>
+            <ServiceContext.Provider value={service}>
+                    <App />
+            </ServiceContext.Provider>
+        </ErrorCatcher>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

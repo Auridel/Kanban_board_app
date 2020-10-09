@@ -4,19 +4,20 @@ import {DELETE_CARD} from "../../actions";
 import Card from "../card/card";
 import "./cardList.scss";
 import {Droppable} from "react-beautiful-dnd";
+import WithService from "../hoc_withService/withService";
 
 const CardList = ({entries, columnId, DELETE_CARD, service}) => {
 
     const deleteCard = (colId, cardId) =>{
-        DELETE_CARD(colId, cardId);
-        const idx = entries.findIndex(item => +item.id === +colId),
-            newCards = entries[idx].cards.filter(item => {
+        const newEntries = [...entries.map(elem => Object.assign({}, elem))];
+        const idx = newEntries.findIndex(item => +item.id === +colId);
+        const newCards = newEntries[idx].cards.filter(item => {
             return +item.id !== +cardId
-        }),
-            newColumn = Object.assign({}, entries[idx]);
-        newColumn.cards = [...newCards];
+        });
+        newEntries[idx].cards = [...newCards];
 
-        service.updateColumn(colId, newColumn)
+        DELETE_CARD(newEntries);
+        service.updateColumn(colId, newEntries[idx])
             .then(() => {
                 console.log("card deleted");
             })
@@ -70,4 +71,4 @@ const mapDispatchToProps = {
     DELETE_CARD
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CardList);
+export default WithService()(connect(mapStateToProps, mapDispatchToProps)(CardList));

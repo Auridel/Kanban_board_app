@@ -5,13 +5,10 @@ const GET_ENTRIES = (entries) => {
     }
 };
 
-const ADD_CARD = (card, columnIdx) => {
+const ADD_CARD = (newEntries) => {
     return {
         type: "ADD_CARD",
-        payload: {
-            card,
-            columnIdx
-        }
+        payload: newEntries
     }
 };
 
@@ -25,19 +22,18 @@ const ADD_COLUMN = (title, id) => {
     }
 };
 
-const DELETE_COLUMN = (id) => {
+const DELETE_COLUMN = (newEntries) => {
     return {
         type: "DELETE_COLUMN",
-        payload: id
+        payload: newEntries
     }
 };
 
-const DELETE_CARD = (columnId, cardId) => {
+const DELETE_CARD = (newEntries) => {
     return {
         type: "DELETE_CARD",
         payload: {
-            columnId,
-            cardId
+            newEntries
         }
     }
 };

@@ -35,16 +35,18 @@ const AddForm = ({newColumn, columnId, entries, ADD_CARD, ADD_COLUMN, service}) 
     };
     const addNewCard = (text, id) => {
         if(text) {
-            const idx = entries.findIndex(item => +item.id === +id);
+            const newEntries = [...entries.map(elem => Object.assign({}, elem))];
+            const idx = newEntries.findIndex(item => +item.id === +id);
             const card = {
                 body: text,
                 id: randomIdGenerator(`${text}`)
             };
+            newEntries[idx].cards = [...entries[idx].cards, card];
             const updatedColumn = {
                 title: entries[idx].title,
                 cards: [...entries[idx].cards, card]
         };
-            ADD_CARD(card, idx);
+            ADD_CARD(newEntries);
             closeForm();
             service.updateColumn(id, updatedColumn)
                 .then(() => {

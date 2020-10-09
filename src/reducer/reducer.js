@@ -14,14 +14,9 @@ const reducer = (state = initialState, action) => {
             }
         }
         case "ADD_CARD": {
-            const newEntries = [...state.entries],
-                {columnIdx} = action.payload,
-                {card} = action.payload;
-
-            newEntries[columnIdx].cards = [...state.entries[columnIdx].cards, card];
             return {
                 ...state,
-                entries: [...newEntries]
+                entries: [...action.payload]
             }
         }
         case "ADD_COLUMN":{
@@ -36,30 +31,21 @@ const reducer = (state = initialState, action) => {
             }
         }
         case "DELETE_COLUMN": {
-            const id = action.payload,
-                newEntries = [...state.entries];
-            const idx = newEntries.findIndex(item => +item.id === +id);
             return {
                 ...state,
-                entries: [...newEntries.slice(0,idx),...newEntries.slice(idx + 1, newEntries.length)]
+                entries: [...action.payload]
             }
         }
         case "DELETE_CARD": {
-            const {columnId, cardId} = action.payload,
-                newEntries = [...state.entries],
-                idx = newEntries.findIndex(item => +item.id === +columnId),
-                newCards = [...state.entries[idx].cards.filter(elem => +elem.id !== +cardId)];
-            newEntries[idx].cards = [...newCards];
             return {
                 ...state,
-                entries: [...newEntries]
+                entries: [...action.payload.newEntries]
             }
         }
         case "DRAG_CARDS":{
-            const {newEntries} = action.payload;
             return {
                 ...state,
-                entries: [...newEntries]
+                entries: [...action.payload.newEntries]
             }
         }
         default: return state;

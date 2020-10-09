@@ -59,6 +59,7 @@ $textColor: #232323;
 .add__column{
   margin-left: 20px;
   width: 250px;
+  flex-shrink: 0;
 
   border-radius: 3px;
   background-color: $bgColor;

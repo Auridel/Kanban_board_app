@@ -18,9 +18,10 @@ body, html{
     align-items: flex-start;
 
     height: 100vh;
-    background-image: url("../../assets/img/100 Best Wallpapers 11 1920x1080 (2).jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-image: url("../../assets/img/vintage-wallpaper.png");
+    background-repeat: repeat;
+    overflow-x: auto;
+    overflow-y: hidden;
 }
 
 
