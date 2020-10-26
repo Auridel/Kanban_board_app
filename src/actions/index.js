@@ -1,14 +1,7 @@
-const GET_ENTRIES = (entries) => {
-    return {
-        type: "GET_ENTRIES",
-        payload: entries
-    }
-};
-
-const ADD_CARD = (newEntries) => {
+const ADD_CARD = (card) => {
     return {
         type: "ADD_CARD",
-        payload: newEntries
+        payload: card
     }
 };
 
@@ -22,34 +15,29 @@ const ADD_COLUMN = (title, id) => {
     }
 };
 
-const DELETE_COLUMN = (newEntries) => {
+const DELETE_COLUMN = (id) => {
     return {
         type: "DELETE_COLUMN",
-        payload: newEntries
+        payload: id
     }
 };
 
-const DELETE_CARD = (newEntries) => {
+const DELETE_CARD = (id) => {
     return {
         type: "DELETE_CARD",
-        payload: {
-            newEntries
-        }
+        payload: id
     }
 };
 
-const DRAG_CARDS = (newEntries) => {
+const DRAG_CARDS = (cards) => {
     return {
         type: "DRAG_CARDS",
-        payload: {
-            newEntries
-        }
+        payload: cards
     }
 };
 
 
 export {
-    GET_ENTRIES,
     ADD_CARD,
     ADD_COLUMN,
     DELETE_COLUMN,

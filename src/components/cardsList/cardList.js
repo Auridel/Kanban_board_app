@@ -4,44 +4,13 @@ import {DELETE_CARD} from "../../actions";
 import Card from "../card/card";
 import "./cardList.scss";
 import {Droppable} from "react-beautiful-dnd";
-import WithService from "../hoc_withService/withService";
 
-const CardList = ({entries, columnId, DELETE_CARD, service}) => {
+const CardList = ({cards, columnId, DELETE_CARD}) => {
 
-    const deleteCard = (colId, cardId) =>{
-        const newEntries = [...entries.map(elem => Object.assign({}, elem))];
-        const idx = newEntries.findIndex(item => +item.id === +colId);
-        const newCards = newEntries[idx].cards.filter(item => {
-            return +item.id !== +cardId
-        });
-        newEntries[idx].cards = [...newCards];
-
-        DELETE_CARD(newEntries);
-        service.updateColumn(colId, newEntries[idx])
-            .then(() => {
-                console.log("card deleted");
-            })
-            .catch(() => {
-                console.log("card delete error");
-            })
+    const deleteCard = (cardId) =>{
+        DELETE_CARD(cardId);
     };
 
-    const writeMarkup = (items, colId) => {
-        const idx = entries.findIndex(item => +item.id === +colId);
-        return (
-            items[idx].cards.map((elem, index) => {
-                return (
-                    <Card
-                        onDelete={deleteCard}
-                        key={elem.id}
-                        index={index}
-                        text={elem.body}
-                        cardId={elem.id}
-                        columnId={colId}
-                    />
-                )})
-        )
-    };
 
     return(
         <Droppable droppableId={`${columnId}`}>
@@ -52,7 +21,18 @@ const CardList = ({entries, columnId, DELETE_CARD, service}) => {
 
                     className="card-list">
                     {
-                        writeMarkup(entries, columnId)
+                        cards.map((elem, index) => {
+                            if(elem.colId === columnId) return (
+                                <Card
+                                    onDelete={() => deleteCard(elem.id)}
+                                    key={elem.id}
+                                    index={index}
+                                    text={elem.body}
+                                    cardId={elem.id}
+                                    columnId={columnId}
+                                />
+                                )
+                        })
                     }
                     {provided.placeholder}
                 </ul>
@@ -63,7 +43,7 @@ const CardList = ({entries, columnId, DELETE_CARD, service}) => {
 
 const mapStateToProps = (state) => {
     return {
-        entries: state.entries
+        cards: state.cards
     }
 };
 
@@ -71,4 +51,4 @@ const mapDispatchToProps = {
     DELETE_CARD
 };
 
-export default WithService()(connect(mapStateToProps, mapDispatchToProps)(CardList));
+export default connect(mapStateToProps, mapDispatchToProps)(CardList);

@@ -4,10 +4,9 @@ import {connect} from "react-redux";
 import {ADD_CARD, ADD_COLUMN} from "../../actions";
 import "./addForm.scss";
 import cancelSvg from "../../assets/img/cancel.svg";
-import WithService from "../hoc_withService/withService";
-import randomIdGenerator from "../../common/randomIdGenerator";
+import { v4 as uuidv4 } from 'uuid';
 
-const AddForm = ({newColumn, columnId, entries, ADD_CARD, ADD_COLUMN, service}) => {
+const AddForm = ({newColumn, columnId, ADD_CARD, ADD_COLUMN}) => {
     const [openForm, setOpenForm] = useState(false);
     const [inputText, setInputText] = useState();
     const inputRef = useRef(),
@@ -35,41 +34,18 @@ const AddForm = ({newColumn, columnId, entries, ADD_CARD, ADD_COLUMN, service}) 
     };
     const addNewCard = (text, id) => {
         if(text) {
-            const newEntries = [...entries.map(elem => Object.assign({}, elem))];
-            const idx = newEntries.findIndex(item => +item.id === +id);
             const card = {
                 body: text,
-                id: randomIdGenerator(`${text}`)
+                id: uuidv4(),
+                colId: id
             };
-            newEntries[idx].cards = [...entries[idx].cards, card];
-            const updatedColumn = {
-                title: entries[idx].title,
-                cards: [...entries[idx].cards, card]
-        };
-            ADD_CARD(newEntries);
+            ADD_CARD(card);
             closeForm();
-            service.updateColumn(id, updatedColumn)
-                .then(() => {
-                    console.log("card added")
-                })
-                .catch(() => {
-                    console.log("card add err")
-                })
         }
     };
     const addNewColumn = (title) => {
         if(title) {
-            service.addColumn({
-                title: title,
-                cards : []
-            })
-                .then((res) => {
-                    ADD_COLUMN(title, res.id);
-                    console.log("col added")
-                })
-                .catch(() => {
-                    console.log("col add error");
-                });
+            ADD_COLUMN(title, uuidv4());
             closeForm();
         }
     };
@@ -109,15 +85,10 @@ const AddForm = ({newColumn, columnId, entries, ADD_CARD, ADD_COLUMN, service}) 
     )
 };
 
-const mapStateToProps = (state) => {
-    return {
-        entries: state.entries
-    }
-};
 
 const mapDispatchToProps = {
     ADD_CARD,
     ADD_COLUMN
 };
 
-export default WithService()(connect(mapStateToProps, mapDispatchToProps)(AddForm));
+export default connect(null, mapDispatchToProps)(AddForm);
