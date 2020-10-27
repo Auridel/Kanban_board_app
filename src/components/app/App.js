@@ -8,21 +8,29 @@ import "./app.scss";
 
 
 
-const App = React.memo( ({cards, columns, DRAG_CARDS, DELETE_COLUMN}) => {
+const App = ({cards, columns, DRAG_CARDS, DELETE_COLUMN}) => {
 
     const onDragEnd = (result) => {
         const {source, destination} = result;
-        if (!destination || (source.droppableId === destination.droppableId && source.index === destination.index)) return;
-        let newCards = [...cards];
-        const removed = newCards.splice(source.index, 1)
+        if (!destination) return;
+        const removed = cards.splice(source.index, 1);
         if(source.droppableId === destination.droppableId){
-            newCards = [...newCards.slice(0, destination.index), removed[0], ...newCards.slice(destination.index)];
-            DRAG_CARDS(newCards);
+            cards.splice(destination.index, 0, removed[0]);
+            let res = [];
+            columns.forEach(i => {
+                res = [...res, ...cards.filter(e => i.id === e.colId)];
+            })
+            DRAG_CARDS(res);
         }
         else {
             removed[0].colId = destination.droppableId;
-            newCards = [...newCards.slice(0, destination.index), removed[0], ...newCards.slice(destination.index)];
-            DRAG_CARDS(newCards);
+            if(source.index < destination.index) cards.splice(destination.index-1, 0, removed[0]);
+            else cards.splice(destination.index, 0, removed[0]);
+            let res = [];
+            columns.forEach(i => {
+                res = [...res, ...cards.filter(e => i.id === e.colId)];
+            })
+            DRAG_CARDS(res);
         }
     };
 
@@ -47,7 +55,7 @@ const App = React.memo( ({cards, columns, DRAG_CARDS, DELETE_COLUMN}) => {
           </div>
         </DragDropContext>
     )
-});
+};
 
 const mapStateToProps = (state) => {
     return{
